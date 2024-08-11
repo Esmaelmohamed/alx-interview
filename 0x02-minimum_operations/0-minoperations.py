@@ -1,12 +1,23 @@
 #!/usr/bin/python3
-"""
-Main file for testing
-"""
+""" Minimum Operations
+    """
 
-minOperations = __import__('0-minoperations').minOperations
 
-n = 4
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+def minOperations(n: int) -> int:
+    """ Minimum Operations needed to get n H characters """
+    next = 'H'
+    body = 'H'
+    op = 0
+    while (len(body) < n):
+        if n % len(body) == 0:
+            op += 2
+            next = body
+            body += body
+        else:
+            op += 1
+            body += next
+    if len(body) != n:
+        return 0
+    return op
 
-n = 12
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+
