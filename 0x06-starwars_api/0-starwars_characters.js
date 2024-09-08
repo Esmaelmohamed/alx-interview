@@ -19,7 +19,6 @@ request(url, (err, res, body) => {
     return;
   }
 
-  // Parse the response body
   const filmData = JSON.parse(body);
   const characters = filmData.characters;
 
@@ -36,3 +35,4 @@ request(url, (err, res, body) => {
     });
   });
 });
+
